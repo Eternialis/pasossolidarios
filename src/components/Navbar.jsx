@@ -50,17 +50,20 @@ const Navbar = () => {
                         <Link to="/noticias" className="text-base font-medium text-gray-600 hover:text-gray-900">
                             Noticias
                         </Link>
-                        <Link to="/noticias" className="text-base font-medium text-gray-600 hover:text-gray-900">
-                            Colaborar
+                        <Link to="/dona" className="text-base font-medium text-gray-600 hover:text-gray-900">
+                            Dona
+                        </Link>
+                        <Link to="/login" className="text-base font-medium text-gray-600 hover:text-gray-900">
+                            Login
                         </Link>
                     </Popover.Group>
                     <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                        <a
-                            href="#"
+                        <Link
+                            to="/sumate"
                             className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
                         >
                             Sumate
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -101,18 +104,23 @@ const Navbar = () => {
                                 <Link to="/nosotros" className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Nosotros
                                 </Link>
-
-                                <a href="#" className="text-base font-medium text-gray-900 hover:text-gray-700">
-                                    Docs
-                                </a>
+                                <Link to="/noticias" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                    Noticias
+                                </Link>
+                                <Link to="/dona" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                    Dona
+                                </Link>
+                                <Link to="/login" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                    Login
+                                </Link>
                             </div>
                             <div>
-                                <a
-                                    href="#"
+                                <Link
+                                    to="/sumate"
                                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                                 >
                                     Sumate
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
