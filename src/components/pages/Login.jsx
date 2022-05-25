@@ -1,11 +1,14 @@
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
-
+import * as Yup from 'yup'
 
 const { REACT_APP_PASOS_USER, REACT_APP_PASOS_PASS, REACT_APP_PASOS_LOGGED } = process.env
 
 const Login = () => {
 
     const navigate = useNavigate();
+
+    console.log(REACT_APP_PASOS_USER, REACT_APP_PASOS_PASS, REACT_APP_PASOS_LOGGED)
 
     return (
         <>
@@ -21,12 +24,15 @@ const Login = () => {
                         password: Yup.string().required("Campo obligatorio"),
                     })}
                 onSubmit={
-                    (values) => {
-                        const { usuario, password } = values
-                        if (usuario === REACT_APP_PASOS_USER && password === REACT_APP_PASOS_PASS) {
+                    (values, { resetForm }) => {
+                        const { user, password } = values
+                        resetForm()
+
+                        if (user === REACT_APP_PASOS_USER && password === REACT_APP_PASOS_PASS) {
                             localStorage.setItem("logged", REACT_APP_PASOS_LOGGED)
                             navigate("/")
                         } else {
+                            //Alert Provisorio ¿]Usamos sweet alert?
                             alert("Usuario o contraseña incorrectos")
                         }
                     }}
@@ -39,7 +45,7 @@ const Login = () => {
                     </div>
                     <div>
                         <label htmlFor="password">Contraseña</label>
-                        <Field name="password" />
+                        <Field type="password" name="password" />
                         <ErrorMessage name="password" component="div" className="errorMessage" />
                     </div>
                     <button type="submit">Enviar</button>
