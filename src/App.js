@@ -5,10 +5,12 @@ import Loading from './components/Loading';
 import Navbar from './components/Navbar';
 import NotFound from './components/NotFound';
 import Noticias from './components/pages/Noticias';
+import RequireAuth from './components/RequireAuth';
 const Dona = React.lazy(() => import('./components/pages/Dona'));
 const Nosotros = React.lazy(() => import('./components/pages/Nosotros'));
 const Sumate = React.lazy(() => import('./components/pages/Sumate'));
 const Login = React.lazy(() => import('./components/pages/Login'));
+const Edicion = React.lazy(() => import('./components/pages/Edicion'));
 
 function App() {
   return (
@@ -44,6 +46,13 @@ function App() {
           <React.Suspense fallback={<Loading />}>
             <Login />
           </React.Suspense>
+        } />
+        <Route path="/edicion" element={
+          <RequireAuth>
+            <React.Suspense fallback={<Loading />}>
+              <Edicion />
+            </React.Suspense>
+          </RequireAuth>
         } />
         <Route path="*" element={<NotFound />} />
       </Routes>

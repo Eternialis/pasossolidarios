@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
@@ -22,6 +22,16 @@ function classNames(...classes) {
 }
 
 const Navbar = () => {
+
+    localStorage.getItem("logged")
+    const { REACT_APP_PASOS_LOGGED } = process.env
+    const navigate = useNavigate()
+
+    const handleClick = (e) => {
+        localStorage.removeItem("logged")
+        navigate("/")
+    }
+
     return (
         <Popover className="relative bg-white shadow">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -64,6 +74,22 @@ const Navbar = () => {
                         >
                             Sumate
                         </Link>
+                        {localStorage.getItem("logged") === REACT_APP_PASOS_LOGGED &&
+                            <>
+                                <Link
+                                    to="/edicion"
+                                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+                                >
+                                    Vista edición
+                                </Link>
+                                <button
+                                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+                                    onClick={handleClick}
+                                >
+                                    Cerrar sesión
+                                </button>
+                            </>
+                        }
                     </div>
                 </div>
             </div>
@@ -121,6 +147,22 @@ const Navbar = () => {
                                 >
                                     Sumate
                                 </Link>
+                                {localStorage.getItem("logged") === REACT_APP_PASOS_LOGGED &&
+                                    <>
+                                        <Link
+                                            to="/edicion"
+                                            className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                                        >
+                                            Vista edición
+                                        </Link>
+                                        <button
+                                            className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                                            onClick={handleClick}
+                                        >
+                                            Cerrar sesión
+                                        </button>
+                                    </>
+                                }
                             </div>
                         </div>
                     </div>
