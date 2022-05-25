@@ -4,10 +4,11 @@ import Home from './components/pages/Home';
 import Loading from './components/Loading';
 import Navbar from './components/Navbar';
 import NotFound from './components/NotFound';
-const Dona = React.lazy(() => import('./components/Dona'));
-const Nosotros = React.lazy(() => import('./components/Nosotros'));
-const Sumate = React.lazy(() => import('./components/Sumate'));
-const Login = React.lazy(() => import('./components/Login'));
+import Noticias from './components/pages/Noticias';
+const Dona = React.lazy(() => import('./components/pages/Dona'));
+const Nosotros = React.lazy(() => import('./components/pages/Nosotros'));
+const Sumate = React.lazy(() => import('./components/pages/Sumate'));
+const Login = React.lazy(() => import('./components/pages/Login'));
 
 function App() {
   return (
@@ -27,6 +28,11 @@ function App() {
         <Route path="/nosotros" element={
           <React.Suspense fallback={<Loading />}>
             <Nosotros />
+          </React.Suspense>
+        } />
+        <Route path="/noticias" element={
+          <React.Suspense fallback={<Loading />}>
+            <Noticias />
           </React.Suspense>
         } />
         <Route path="/sumate" element={
