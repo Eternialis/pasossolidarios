@@ -10,15 +10,16 @@ const Noticias = () => {
 
     useEffect(() => {
         setLoading(true)
-        const queryNoticias = getDocs(noticiasCollection)
+        getDocs(noticiasCollection)
             .then(({ docs }) => {
-                setData(docs)
+                const docsFormateado = docs.map(doc => ({ id: doc.id, ...doc.data() }))
+                setData(docsFormateado)
             })
             .catch((error) => {
+                //transformar en un toast o en un alert
                 console.log(error)
             })
         setLoading(false)
-        console.log(data)
     }, [])
 
     return (
