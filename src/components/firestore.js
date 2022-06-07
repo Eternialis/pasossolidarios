@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { collection, getFirestore } from "firebase/firestore";
 
 const { REACT_APP_FIREBASE_API_KEY } = process.env
 
@@ -14,4 +14,5 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const db = getFirestore(app)
+export const noticiasCollection = collection(db, "noticias")
