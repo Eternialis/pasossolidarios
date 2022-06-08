@@ -7,7 +7,7 @@ import NotFound from './components/NotFound';
 import Noticias from './components/pages/Noticias';
 import RequireAuth from './components/RequireAuth';
 const Dona = React.lazy(() => import('./components/pages/Dona'));
-const Nosotros = React.lazy(() => import('./components/pages/Nosotros'));
+const Nosotros = React.lazy(() => import('./components/Nosotros'));
 const Sumate = React.lazy(() => import('./components/pages/Sumate'));
 const Login = React.lazy(() => import('./components/pages/Login'));
 const Edicion = React.lazy(() => import('./components/pages/Edicion'));
@@ -25,11 +25,6 @@ function App() {
         <Route path="/dona" element={
           <React.Suspense fallback={<Loading />}>
             <Dona />
-          </React.Suspense>
-        } />
-        <Route path="/nosotros" element={
-          <React.Suspense fallback={<Loading />}>
-            <Nosotros />
           </React.Suspense>
         } />
         <Route path="/noticias" element={

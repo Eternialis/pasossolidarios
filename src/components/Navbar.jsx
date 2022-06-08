@@ -1,25 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
-import {
-    BookmarkAltIcon,
-    CalendarIcon,
-    ChartBarIcon,
-    CursorClickIcon,
-    MenuIcon,
-    PhoneIcon,
-    PlayIcon,
-    RefreshIcon,
-    ShieldCheckIcon,
-    SupportIcon,
-    ViewGridIcon,
-    XIcon,
-} from '@heroicons/react/outline'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+import { MenuIcon, XIcon } from '@heroicons/react/outline'
 
 const Navbar = () => {
 
@@ -38,7 +20,6 @@ const Navbar = () => {
                 <div className="flex justify-between items-center py-4 md:justify-start md:space-x-10">
                     <div className="flex justify-start lg:w-0 lg:flex-1">
                         <Link to="/">
-                            <span className="sr-only">Workflow</span>
                             <img
                                 className="h-8 w-auto sm:h-10"
                                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
@@ -54,14 +35,14 @@ const Navbar = () => {
                     </div>
                     <Popover.Group as="nav" className="hidden md:flex space-x-10">
 
-                        <Link to="/nosotros" className="text-base font-medium text-gray-600 hover:text-gray-900">
+                        <a href="/#nosotros" className="text-base font-medium text-gray-600 hover:text-gray-900">
                             Sobre nosotros
-                        </Link>
+                        </a>
                         <Link to="/noticias" className="text-base font-medium text-gray-600 hover:text-gray-900">
                             Noticias
                         </Link>
                         <Link to="/dona" className="text-base font-medium text-gray-600 hover:text-gray-900">
-                            Dona
+                            Donaciones
                         </Link>
                         <Link to="/login" className="text-base font-medium text-gray-600 hover:text-gray-900">
                             Login

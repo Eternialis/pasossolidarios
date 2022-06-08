@@ -2,6 +2,7 @@ import { noticiasCollection } from "../firestore"
 import { getDocs } from "firebase/firestore";
 import NoticiasCard from "../NoticiasCard"
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Noticias = () => {
 
@@ -14,23 +15,52 @@ const Noticias = () => {
             .then(({ docs }) => {
                 const docsFormateado = docs.map(doc => ({ id: doc.id, ...doc.data() }))
                 setData(docsFormateado)
+                console.log(data)
             })
             .catch((error) => {
                 //transformar en un toast o en un alert
                 console.log(error)
             })
-        setLoading(false)
+            .finally(() => {
+                setLoading(false)
+            })
     }, [])
 
     return (
-        <section>
-            <div>Noticias</div>
+        <section className="relative bg-gray-50 pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
             {loading ? <div>Cargando...</div> :
-                <div>
-                    {data.map((noticia) => {
-                        return <NoticiasCard key={noticia.id} noticia={noticia} />
-                    })}
-                </div>
+                <>
+                    <div className="absolute inset-0">
+                        <div className="bg-white h-1/3 sm:h-2/3" />
+                    </div>
+                    <div className="relative max-w-7xl mx-auto">
+                        <div className="text-center">
+                            <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">From the blog</h2>
+                            <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
+                            </p>
+                        </div>
+                        <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
+                            {data.map((post) => (
+                                <div key={post.id} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
+                                    <div className="flex-shrink-0">
+                                        <img className="h-48 w-full object-cover" src={post.img} alt="" />
+                                    </div>
+                                    <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                                        <div className="flex-1">
+                                            <Link to={`/noticia/${post.id}`} className="block mt-2">
+                                                <a>
+                                                    <p className="text-xl font-semibold text-gray-900">{post.titulo}</p>
+                                                    <p className="mt-3 text-base text-gray-500">{`${post.texto.substring(0, 200)}...`}</p>
+                                                </a>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </>
             }
         </section>
     )
