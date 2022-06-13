@@ -22,7 +22,7 @@ const Navbar = () => {
                         <Link to="/">
                             <img
                                 className="h-8 w-auto sm:h-10"
-                                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                                src="/logo512.png"
                                 alt=""
                             />
                         </Link>
