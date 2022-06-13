@@ -59,9 +59,9 @@ const Navbar = () => {
                             <>
                                 <Link
                                     to="/edicion"
-                                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
+                                    className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-pink-600 hover:bg-pink-700"
                                 >
-                                    Vista edición
+                                    Subir noticia
                                 </Link>
                                 <button
                                     className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-blue-600 hover:bg-blue-700"
@@ -134,7 +134,7 @@ const Navbar = () => {
                                             to="/edicion"
                                             className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                                         >
-                                            Vista edición
+                                            Subir una noticia
                                         </Link>
                                         <button
                                             className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
