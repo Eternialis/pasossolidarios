@@ -44,9 +44,11 @@ const Navbar = () => {
                         <Link to="/dona" className="text-base font-medium text-gray-600 hover:text-gray-900">
                             Donaciones
                         </Link>
-                        <Link to="/login" className="text-base font-medium text-gray-600 hover:text-gray-900">
-                            Login
-                        </Link>
+                        {!localStorage.getItem("logged") &&
+                            <Link to="/login" className="text-base font-medium text-gray-600 hover:text-gray-900">
+                                Login
+                            </Link>
+                        }
                     </Popover.Group>
                     <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
                         <Link

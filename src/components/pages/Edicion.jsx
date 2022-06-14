@@ -32,7 +32,7 @@ const Edicion = () => {
                                         Yup.object().shape({
                                             titulo: Yup.string().min(10, "El título debe poseer entre 10 y 30 caracteres").max(30, "El título debe poseer entre 10 y 30 caracteres").required("Campo obligatorio"),
                                             texto: Yup.string().min(150, "Inserte un mínimo de 150 caracteres").max(650, "Se admiten hasta 650 caracteres").required("Campo obligatorio"),
-                                            img: Yup.string().required("Campo obligatorio"),
+                                            img: Yup.string().url("La URL de la imagen no es válida"),
                                         })}
                                     onSubmit={
                                         (values, { resetForm }) => {
