@@ -36,9 +36,7 @@ const Edicion = () => {
                                         })}
                                     onSubmit={
                                         (values, { resetForm }) => {
-                                            console.log(values)
                                             resetForm()
-
                                             addDoc(noticiasCollection, values)
                                                 .then((resultado) => {
                                                     alert("Se ha agregado correctamente")

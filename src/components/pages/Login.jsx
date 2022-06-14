@@ -8,8 +8,6 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    console.log(REACT_APP_PASOS_USER, REACT_APP_PASOS_PASS, REACT_APP_PASOS_LOGGED)
-
     return (
         <>
             <div className="min-h-screen -mt-20 bg-gray-50 flex flex-col justify-center sm:px-6 lg:px-8">
