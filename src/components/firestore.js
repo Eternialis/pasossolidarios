@@ -1,16 +1,23 @@
 import { initializeApp } from "firebase/app";
 import { collection, getFirestore } from "firebase/firestore";
 
-const { REACT_APP_FIREBASE_API_KEY } = process.env
+const {
+    REACT_APP_FIREBASE_API_KEY,
+    REACT_APP_FIREBASE_AUTH_DOMAIN,
+    REACT_APP_FIREBASE_PROJECT_ID,
+    REACT_APP_FIREBASE_APP_ID,
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    REACT_APP_FIREBASE_MEASUREMENT_ID
+} = process.env
 
 const firebaseConfig = {
     apiKey: REACT_APP_FIREBASE_API_KEY,
-    authDomain: "pasos-solidarios.firebaseapp.com",
-    projectId: "pasos-solidarios",
-    storageBucket: "pasos-solidarios.appspot.com",
-    messagingSenderId: "579759416779",
-    appId: "1:579759416779:web:21955e548c46f4f84e424e",
-    measurementId: "G-4HG752HNQR"
+    authDomain: REACT_APP_FIREBASE_AUTH_DOMAIN,
+    projectId: REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: "pasos-solidarios-8a60d.appspot.com",
+    messagingSenderId: REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: REACT_APP_FIREBASE_APP_ID,
+    measurementId: REACT_APP_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
