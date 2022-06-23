@@ -1,8 +1,21 @@
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import { MailIcon, PhoneIcon } from '@heroicons/react/outline'
+import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup'
+import { useForm } from "@formspree/react"
 
 const Sumate = () => {
+
+    const navigate = useNavigate()
+
+    const { REACT_APP_FORMSPREE_API_KEY } = process.env
+
+    const [state, handleSubmit] = useForm(REACT_APP_FORMSPREE_API_KEY);
+    if (state.succeeded) {
+        alert("¡Gracias por sumarte! Vamos a ver tu mensaje a la brevedad")
+        navigate('/')
+    }
+
     return (
         <>
             <div className="relative bg-white min">
@@ -51,12 +64,7 @@ const Sumate = () => {
                                         telefono: Yup.string().required("Campo obligatorio"),
                                         mensaje: Yup.string().required("Campo obligatorio"),
                                     })}
-                                onSubmit={
-                                    (values) => {
-                                        const { nombre, mail, telefono, mensaje } = values
-
-                                        console.log(values)
-                                    }}
+                                onSubmit={handleSubmit}
                             >
                                 <Form>
                                     <div>
