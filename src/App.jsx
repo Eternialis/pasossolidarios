@@ -22,11 +22,6 @@ function App() {
             <Home />
           </React.Suspense>
         } />
-        <Route path="/dona" element={
-          <React.Suspense fallback={<Loading />}>
-            <Dona />
-          </React.Suspense>
-        } />
         <Route path="/noticias" element={
           <React.Suspense fallback={<Loading />}>
             <Noticias />

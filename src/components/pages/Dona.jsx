@@ -1,7 +1,7 @@
 
 const Dona = () => {
     return (
-        <div className="relative bg-indigo-800">
+        <div className="relative bg-indigo-800" id="dona">
             <div className="absolute inset-0">
                 <img
                     className="w-full h-full object-cover"

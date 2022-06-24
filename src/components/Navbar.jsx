@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { Link as ScrollLink } from "react-scroll"
 
 const Navbar = () => {
 
@@ -35,15 +36,15 @@ const Navbar = () => {
                     </div>
                     <Popover.Group as="nav" className="hidden md:flex space-x-10">
 
-                        <a href="/#nosotros" className="text-base font-medium text-gray-600 hover:text-gray-900">
+                        <ScrollLink to="nosotros" smooth spy className="text-base font-medium text-gray-600 hover:text-gray-900">
                             Sobre nosotros
-                        </a>
+                        </ScrollLink>
                         <Link to="/noticias" className="text-base font-medium text-gray-600 hover:text-gray-900">
                             Noticias
                         </Link>
-                        <Link to="/dona" className="text-base font-medium text-gray-600 hover:text-gray-900">
+                        <ScrollLink to="dona" smooth spy className="text-base font-medium text-gray-600 hover:text-gray-900">
                             Donaciones
-                        </Link>
+                        </ScrollLink>
                         {!localStorage.getItem("logged") &&
                             <Link to="/login" className="text-base font-medium text-gray-600 hover:text-gray-900">
                                 Login
@@ -110,15 +111,15 @@ const Navbar = () => {
                         </div>
                         <div className="py-6 px-5 space-y-6">
                             <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                                <Link to="/nosotros" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                <ScrollLink to="nosotros" smooth spy className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Nosotros
-                                </Link>
+                                </ScrollLink>
                                 <Link to="/noticias" className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Noticias
                                 </Link>
-                                <Link to="/dona" className="text-base font-medium text-gray-900 hover:text-gray-700">
+                                <ScrollLink to="dona" smooth spy className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Dona
-                                </Link>
+                                </ScrollLink>
                                 <Link to="/login" className="text-base font-medium text-gray-900 hover:text-gray-700">
                                     Login
                                 </Link>
