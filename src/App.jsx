@@ -6,8 +6,6 @@ import Navbar from './components/Navbar';
 import NotFound from './components/NotFound';
 import Noticias from './components/pages/Noticias';
 import RequireAuth from './components/RequireAuth';
-const Dona = React.lazy(() => import('./components/pages/Dona'));
-const Nosotros = React.lazy(() => import('./components/Nosotros'));
 const Sumate = React.lazy(() => import('./components/pages/Sumate'));
 const Login = React.lazy(() => import('./components/pages/Login'));
 const Edicion = React.lazy(() => import('./components/pages/Edicion'));

@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import heroImg from '../assets/img/grupoSolidario.JPG'
 import foot from '../assets/img/foot.png'
+import { Link as ScrollLink } from "react-scroll"
 
 const Hero = () => {
     return (
@@ -51,12 +52,12 @@ const Hero = () => {
                                 </Link>
                             </div>
                             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
-                                <a
-                                    to="/nosotros"
+                                <ScrollLink
+                                    to="nosotros"
                                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
                                 >
                                     Más info
-                                </a>
+                                </ScrollLink>
                             </div>
                         </div>
                     </div>
